@@ -84,16 +84,51 @@ export default function Home() {
         >
           <motion.div
             initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <Image
-              src="/images/logo.jpg"
-              alt="Cafe Consume"
-              width={300}
-              height={150}
-              className="mx-auto mb-8 rounded-2xl shadow-2xl"
-            />
+            <motion.div
+              animate={{
+                y: [0, -10, 0],
+                rotateZ: [0, 2, -2, 0],
+                scale: [1, 1.05, 1],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              style={{
+                filter: 'drop-shadow(0 0 20px rgba(240, 235, 216, 0.3))',
+              }}
+            >
+              <motion.div
+                animate={{
+                  filter: [
+                    'hue-rotate(0deg) brightness(1)',
+                    'hue-rotate(15deg) brightness(1.1)',
+                    'hue-rotate(-15deg) brightness(1.05)',
+                    'hue-rotate(0deg) brightness(1)',
+                  ]
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <Image
+                  src="/images/logo.jpg"
+                  alt="Cafe Consume"
+                  width={300}
+                  height={150}
+                  className="mx-auto mb-8 rounded-2xl shadow-2xl"
+                />
+              </motion.div>
+            </motion.div>
           </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
